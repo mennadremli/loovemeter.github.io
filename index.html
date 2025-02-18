@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Meter</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Cairo', sans-serif;
+            background-color: #ffe6e6;
+            margin: 0;
+            padding: 0;
+        }
+        .heart {
+            font-size: 100px;
+            color: red;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .container {
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: darkred;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h1>Love Meter</h1>
+        <p>Love knows no limits. Enter your name and test it!</p>
+        <input type="text" id="nameInput" placeholder="Enter your name...">
+        <button onclick="showLove()">Check Love Meter</button>
+        <p id="result"></p>
+    </div>
+    <div class="footer">Made with love ❤️</div>
+
+    <script>
+        function showLove() {
+            let name = document.getElementById("nameInput").value.trim().toLowerCase();
+            if (name === "") {
+                alert("Please enter your name!");
+            } else if (name === "arwa") {
+                document.getElementById("result").innerText = "Love Score: 98% ❤️🔥";
+            } else if (name === "ayten") {
+                document.getElementById("result").innerText = "This love cannot be measured! 💖🔥";
+            } else {
+                let lovePercentage = Math.floor(Math.random() * 101); // Generate a random love percentage
+                document.getElementById("result").innerText = `Love Score: ${lovePercentage}% ❤️🔥`;
+            }
+        }
+    </script>
+</body>
+</html>
